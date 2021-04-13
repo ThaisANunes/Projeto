@@ -45,7 +45,7 @@ public class TesteProjeto {
 				case 6: lista = livros;break;
 				default:System.out.println("Opção inválida");break;
 			}
-			
+			}
 			if (lista != null) {
 				lista.listaGeneros();
 				int genero = scanner.nextInt();
@@ -60,26 +60,25 @@ public class TesteProjeto {
 				}
 				
 			}
-			
-		
-			try {
-				
-				System.out.println("\n"+usuario.getNome()+", deseja fazer outra atividade?"
+			System.out.println("\n"+usuario.getNome()+", deseja fazer outra atividade?"
 						+ "\n0- Não."
 						+ "\n1- Sim! Me mostre as opções!");
-				continuar = scanner.nextInt();
-				if(continuar != 0 &&continuar != 1) {
-					throw new IllegalArgumentException();
-				}
-				}
-				catch(IllegalArgumentException e){
+			continuar = scanner.nextInt();
+			while (continuar != 0 && continuar != 1) {
+				try {
+					if(continuar != 0 && continuar != 1) {
+						throw new IllegalArgumentException();
+					}
+				}catch(IllegalArgumentException e){
 					System.out.println("Você digitou um valor inválido");
 					System.out.println("\n"+usuario.getNome()+", deseja fazer outra atividade?"
-							+ "\n0- Não."
-							+ "\n1- Sim! Me mostre as opções!");
+					+ "\n0- Não."
+					+ "\n1- Sim! Me mostre as opções!");
 					continuar = scanner.nextInt();
 				}
-				}System.out.println("\n"+usuario.getNome()+", obrigade! Até mais");
+			}
+		}
+		System.out.println("\n"+usuario.getNome()+", obrigade! Até mais");
 	}
 
 }
